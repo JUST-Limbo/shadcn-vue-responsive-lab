@@ -1,0 +1,36 @@
+{
+  "name": "shadcn-vue-responsive-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "format": "prettier --write src docs README.md index.html vite.config.ts tsconfig.json package.json",
+    "format:check": "prettier --check src docs README.md index.html vite.config.ts tsconfig.json package.json"
+  },
+  "dependencies": {
+    "@lucide/vue": "1.57.0",
+    "@vueuse/core": "15.0.0",
+    "reka-ui": "2.11.0",
+    "vue": "3.5.44"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "^22.0.0",
+    "@vitejs/plugin-vue": "6.0.10",
+    "@vue/test-utils": "2.4.6",
+    "happy-dom": "21.0.1",
+    "prettier": "3.6.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.4",
+    "vue-tsc": "3.3.13"
+  }
+}
