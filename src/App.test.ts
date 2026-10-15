@@ -22,6 +22,7 @@ describe('学习场景可从共享导航访问', () => {
       '相同的选项，三种导航形态。',
       '把空间留给正在做的事。',
       '桌面居中，手机从底部出现。',
+      '键盘升起，让消息区让出空间。',
     ]
     for (let index = 0; index < titles.length; index += 1) {
       await wrapper.findAll('.nav-item')[index + 1].trigger('click')
@@ -30,5 +31,21 @@ describe('学习场景可从共享导航访问', () => {
       expect(wrapper.find('iframe').exists()).toBe(false)
     }
     wrapper.unmount()
+  })
+
+  it('独立聊天入口移除实验台布局，卸载后恢复页面原滚动设置', async () => {
+    window.history.replaceState(null, '', '/?scene=keyboard&standalone=1')
+    const bodyOverflow = document.body.style.overflow
+    const rootOverflow = document.documentElement.style.overflow
+    const wrapper = mount(App)
+    await flushPromises()
+    expect(wrapper.find('.keyboard-fullscreen').exists()).toBe(true)
+    expect(wrapper.find('.app-shell').exists()).toBe(false)
+    expect(wrapper.find('iframe').exists()).toBe(false)
+    expect(document.body.style.overflow).toBe('hidden')
+    wrapper.unmount()
+    expect(document.body.style.overflow).toBe(bodyOverflow)
+    expect(document.documentElement.style.overflow).toBe(rootOverflow)
+    window.history.replaceState(null, '', '/')
   })
 })

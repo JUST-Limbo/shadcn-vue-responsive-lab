@@ -19,8 +19,8 @@ const frameSource = computed(() => `/?preview=1&scene=${readScene(frameScene.val
     description="一组可以操作的 Vue 3 适配案例。无需打开开发者工具，直接改变下面的独立视口，观察布局、交互与状态。"
   />
   <div class="lab-summary">
-    <span><i class="live-dot" /> 7 个交互场景</span><span>1 套共享业务逻辑</span
-    ><span>CSS + 响应式状态</span>
+    <span><i class="live-dot" /> {{ scenes.length - 1 }} 个交互场景</span
+    ><span>1 套共享业务逻辑</span><span>CSS + 响应式状态</span>
   </div>
   <section class="frame-panel">
     <div class="frame-toolbar">

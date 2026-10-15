@@ -12,6 +12,7 @@ export const scenes = [
   { id: 'settings', title: '设置导航', hint: '下拉、横排、纵排', icon: 'settings' },
   { id: 'workspace', title: '产物工作台', hint: '右侧栏切换为全屏', icon: 'files' },
   { id: 'overlay', title: '弹层与输入', hint: '底部面板、焦点与滚动', icon: 'layers' },
+  { id: 'keyboard', title: '聊天与软键盘', hint: '可视高度、输入与滚动', icon: 'phone' },
 ] as const
 
 export type SceneId = (typeof scenes)[number]['id']

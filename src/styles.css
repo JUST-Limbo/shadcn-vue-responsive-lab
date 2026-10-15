@@ -1865,3 +1865,199 @@ tbody tr:last-child td {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* 键盘案例：顶部 / 消息 / 输入三行布局，仅中间行滚动。 */
+.keyboard-controls {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.keyboard-control-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.keyboard-control-heading h2,
+.keyboard-guide h2 {
+  font-size: 1rem;
+}
+.keyboard-control-heading p,
+.keyboard-guide p {
+  font-size: 0.875rem;
+  color: #64756d;
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+.keyboard-controls label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+.keyboard-controls input[type='range'] {
+  width: 100%;
+}
+.keyboard-presets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.keyboard-lab-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.keyboard-device {
+  width: min(100%, 26rem);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px #d5dfd8;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: white;
+}
+.keyboard-guide {
+  flex: 1 1 17rem;
+  min-width: 0;
+  display: grid;
+  gap: 1rem;
+}
+.keyboard-guide .panel {
+  padding: 1.25rem;
+}
+.keyboard-guide ol {
+  padding-left: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: #536c5c;
+}
+.keyboard-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+  margin-block: 1rem;
+}
+.keyboard-metrics dd {
+  margin: 0;
+  text-align: right;
+  font-family: Consolas, monospace;
+}
+.keyboard-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: repeating-linear-gradient(135deg, #dde4e7, #dde4e7 12px, #e8edef 12px, #e8edef 24px);
+  color: #536870;
+  font-size: 0.875rem;
+}
+.keyboard-fullscreen {
+  position: fixed;
+  z-index: 50;
+  overflow: hidden;
+  background: white;
+}
+.keyboard-chat {
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  background: white;
+}
+.keyboard-chat-header {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+  border-bottom: 1px solid var(--line);
+}
+.keyboard-chat-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.keyboard-chat-title h2 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.keyboard-chat-title p,
+.keyboard-live-metrics {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #64756d;
+}
+.keyboard-chat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.keyboard-message-viewport {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-anchor: none;
+  overscroll-behavior-y: contain;
+  scroll-behavior: auto;
+}
+.keyboard-message-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1rem;
+}
+.keyboard-message-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #879094;
+}
+.keyboard-bubble {
+  align-self: flex-start;
+  max-width: 88%;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0 0.75rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  background: #f1f5f2;
+}
+.keyboard-bubble.mine {
+  align-self: flex-end;
+  border-radius: 0.75rem 0 0.75rem 0.75rem;
+  background: #e5efe9;
+}
+.keyboard-composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+  border-top: 1px solid var(--line);
+}
+.keyboard-composer textarea {
+  flex: 1;
+  min-width: 0;
+  min-height: 2.75rem;
+  max-height: min(8rem, calc(var(--keyboard-chat-height) * 0.25));
+  padding: 0.625rem;
+  border: 1px solid #d5dfd8;
+  border-radius: 0.5rem;
+  font-size: max(16px, 1rem);
+  line-height: 1.5;
+  resize: none;
+  overflow-y: auto;
+}
+.keyboard-composer .button {
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}

@@ -13,9 +13,11 @@ import TableScenario from './scenarios/TableScenario.vue'
 import SettingsScenario from './scenarios/SettingsScenario.vue'
 import WorkspaceScenario from './scenarios/WorkspaceScenario.vue'
 import OverlayScenario from './scenarios/OverlayScenario.vue'
+import KeyboardScenario from './scenarios/KeyboardScenario.vue'
 
 const query = new URLSearchParams(window.location.search)
 const preview = query.get('preview') === '1'
+const standaloneKeyboard = query.get('standalone') === '1' && query.get('scene') === 'keyboard'
 const active = ref(readScene(query.get('scene')))
 if (preview && active.value === 'lab') active.value = 'sidebar'
 const isMobile = useMediaQuery(MOBILE_QUERY)
@@ -46,6 +48,7 @@ const page = computed(
       settings: SettingsScenario,
       workspace: WorkspaceScenario,
       overlay: OverlayScenario,
+      keyboard: KeyboardScenario,
     })[active.value],
 )
 watch(active, (scene) => {
@@ -62,7 +65,8 @@ useEventListener(window, 'keydown', (event: KeyboardEvent) => {
 </script>
 
 <template>
-  <div class="app-shell" :class="{ 'is-preview': preview }">
+  <KeyboardScenario v-if="standaloneKeyboard" standalone />
+  <div v-else class="app-shell" :class="{ 'is-preview': preview }">
     <a class="skip-link" href="#main-content">跳转到主要内容</a>
     <ResponsiveSidebar :active="active" :preview="preview" @navigate="active = $event" />
     <div class="app-inset">
